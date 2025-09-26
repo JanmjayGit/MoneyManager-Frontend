@@ -9,6 +9,10 @@ import React from 'react'
 import Home from "./pages/Home"
 import Filter from "./pages/Filter"
 import { Toaster } from "react-hot-toast"
+import Contact from "./pages/Contact"
+import Dashboard from "./components/Dashboard"
+import AboutUs from "./pages/AboutUs"
+import LandingPage from "./pages/LandingPage"
 
 function App() {
   
@@ -26,7 +30,21 @@ function App() {
             <Route path="/dashboard" element={<Home />} />
             <Route path="/expense" element={<Expence />} />
             <Route path="/filter" element={<Filter />} />
+            
+            <Route path="/home" element={<LandingPage />} />
+            <Route path="/contact" element={
+                <Dashboard activeMenu="Contact">
+                  <Contact />
+                </Dashboard>
+              } />
+            <Route path="/about" element={
+                <Dashboard activeMenu="About Us">
+                  <AboutUs />
+                </Dashboard>
+              } />
+            
         </Routes>
+            
       </BrowserRouter>
 
       

@@ -5,9 +5,8 @@ import { AppContext } from '../context/AppContext';
 import { useContext, useRef,useEffect } from 'react';
 import { assets } from '../assets/assets';
 import { Link } from 'react-router-dom';
-import { X, Menu, User, LogOut, CircleDollarSign, HandCoins } from 'lucide-react';
+import { X, Menu, User, LogOut, MessageCircle, HandCoins } from 'lucide-react';
 import Sidebar from './Sidebar';
-// import { Sidebar } from 'lucide-react';
 
 const Navbar = ({activeMenu}) => {
 
@@ -40,7 +39,7 @@ const Navbar = ({activeMenu}) => {
     }, [showDropDown]);
 
   return (
-    <div className='flex items-center justify-between gap-5 bg-slate-900 border border-b border-blue-950 py-4 px-4 sm:px-7 sticky top-0 z-30'>
+    <div className='flex items-center justify-between gap-5 bg-gray-200 border border-b border-gray-200 shadow-2xl py-4 px-4 sm:px-7 sticky top-0 z-30'>
         {/* left side menu button */}
         <div className='flex items-center gap-5'>
             <button 
@@ -56,15 +55,39 @@ const Navbar = ({activeMenu}) => {
             <div className='flex items-center gap-2'>
                 {/* <HandCoins className='h-10 w-10 bg-green-500 text-'/> */}
                 <img src={assets.logo} alt="logo" className='h-10 w-10 rounded-full' />
-                <span className='text-lg font-medium text-white truncate'>MoneyManager</span>
+                <span className='text-2xl font-bold text-black truncate'>MoneyManager</span>
             </div>
         </div>
+
+        {/* Center - Contact & About Link (visible on larger screens) */}
+        <div className='hidden md:flex items-center'>
+            <Link
+                to="/home"
+                className='flex items-center gap-2 px-4 py-2 text-black hover:bg-gray-200 rounded-lg transition-colors duration-200'>
+                <span className='text-sm font-medium'>Home</span>
+            </Link>
+            
+            <Link
+                to="/about"
+                className='flex items-center gap-2 px-4 py-2 text-black hover:bg-gray-200 rounded-lg transition-colors duration-200'>
+                <span className='text-sm font-medium'>About us</span>
+            </Link>
+
+            <Link 
+                to="/contact"
+                className='flex items-center gap-2 px-4 py-2 text-black hover:bg-gray-200 rounded-lg transition-colors duration-200'>
+                <span className='text-sm font-medium'>Contact us</span>
+            </Link>
+
+            
+        </div>
+        
         {/* Right side  - Avatar photo */}
             <div className='relative' ref={dropdownRef}>
                 <button 
                     onClick={() => setShowDropdown(!showDropDown)}
                     className='flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-gray-300 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-purple-800 focus:ring-offset-2'>
-                    <User className="text-purple-500" />
+                    <User className="text-indigo-600" />
                 </button>
                 {/* dropdown menu */}
                 {showDropDown && (
@@ -73,7 +96,7 @@ const Navbar = ({activeMenu}) => {
                         <div className='px-4 py-3 border-b border-gray-100'>
                             <div className='flex items-center gap-3'>
                                 <div className='flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full'>
-                                    <User className='w-4 h-4 text-purple-500' />
+                                    <User className='w-4 h-4 text-indigo-600' />
                                 </div>
                                 <div className='flex-1 min-w-0'>
                                     <p className='text-sm font-medium text-black truncate'>

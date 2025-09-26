@@ -2,7 +2,7 @@ import React, { use, useEffect } from 'react'
 import Dashboard from '../components/Dashboard'
 import UseUser from '../hooks/UseUser'
 import InfoCard from '../components/InfoCard';
-import { Coins, Wallet, WalletCards, WalletMinimal } from 'lucide-react';
+import { Coins, Wallet, WalletCards} from 'lucide-react';
 import { addThousandsSeparator } from '../util/util';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';

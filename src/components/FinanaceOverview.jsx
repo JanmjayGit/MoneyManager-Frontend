@@ -3,7 +3,8 @@ import { addThousandsSeparator } from '../util/util';
 import CustomPieChart from './CustomPieChart';
 
 const FinanaceOverview = ({totalBalance, totalIncome, totalExpense}) => {
-    const COLORS = ["#0088FE", "#00C49F", "#ef4444"];
+    
+    const COLORS = ["#4F46E5", "#E7180B", "#31C950"];
 
     const balanceData = [
         { name: "Total Income", amount: totalIncome || 0 },

@@ -7,7 +7,7 @@ import axiosConfig from '../util/axiosConfig';
 import API_ENDPOINTS from '../util/apiEndpoints';
 import toast from 'react-hot-toast';
 import moment from 'moment';
-import { Search } from 'lucide-react';
+
 
 const Filter = () => {
   UseUser();
@@ -97,9 +97,7 @@ const Filter = () => {
                 <button 
                   onClick={handleSearch} 
                   className='w-1/4 p-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:scale-110 text-white rounded-lg flex items-center justify-center cursor-pointer'
-                >
-        
-                  Apply
+                >Apply
                 </button>
               </div>
             </form>
