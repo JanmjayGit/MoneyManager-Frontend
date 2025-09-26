@@ -5,7 +5,7 @@ import { AppContext } from '../context/AppContext';
 import { useContext, useRef,useEffect } from 'react';
 import { assets } from '../assets/assets';
 import { Link } from 'react-router-dom';
-import { X, Menu, User, LogOut, MessageCircle, HandCoins } from 'lucide-react';
+import { X, Menu, User, LogOut, BadgeIndianRupee, HandCoins, Badge } from 'lucide-react';
 import Sidebar from './Sidebar';
 
 const Navbar = ({activeMenu}) => {
@@ -39,12 +39,12 @@ const Navbar = ({activeMenu}) => {
     }, [showDropDown]);
 
   return (
-    <div className='flex items-center justify-between gap-5 bg-gray-200 border border-b border-gray-200 shadow-2xl py-4 px-4 sm:px-7 sticky top-0 z-30'>
+    <div className='flex items-center justify-between gap-5 bg-white border border-b border-gray-200 shadow-2xl py-4 px-4 sm:px-7 sticky top-0 z-30'>
         {/* left side menu button */}
         <div className='flex items-center gap-5'>
             <button 
                 onClick={() => setOpenSideMenu(!openSideMenu)}
-                className='block lg:hidden text-white hover:bg-gray-500 p-1 rounded transition-colors'>
+                className='block lg:hidden text-black hover:bg-gray-500 p-1 rounded transition-colors'>
                 {openSideMenu ? (
                     <X className='text-2xl'/>
             ):(
@@ -52,17 +52,20 @@ const Navbar = ({activeMenu}) => {
             )}
             </button>
 
-            <div className='flex items-center gap-2'>
+            <button className='flex items-center gap-2'>
                 {/* <HandCoins className='h-10 w-10 bg-green-500 text-'/> */}
-                <img src={assets.logo} alt="logo" className='h-10 w-10 rounded-full' />
-                <span className='text-2xl font-bold text-black truncate'>MoneyManager</span>
-            </div>
+                {/* <img src={assets.logo} alt="logo" className='h-10 w-10 rounded-full' /> */}
+                <BadgeIndianRupee className='h-14 w-14 text-indigo-600'/>
+                <span 
+                    onClick={() => navigate("/")}
+                className='text-2xl font-bold text-black truncate'>MoneyManager</span>
+            </button>
         </div>
 
         {/* Center - Contact & About Link (visible on larger screens) */}
         <div className='hidden md:flex items-center'>
             <Link
-                to="/home"
+                to="/"
                 className='flex items-center gap-2 px-4 py-2 text-black hover:bg-gray-200 rounded-lg transition-colors duration-200'>
                 <span className='text-sm font-medium'>Home</span>
             </Link>
