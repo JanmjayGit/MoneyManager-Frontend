@@ -10,7 +10,7 @@ import { toast } from 'react-hot-toast';
 import { LoaderCircle } from 'lucide-react';
 import ProfilePhotoSelector from '../components/ProfilePhotoSelector';
 import  uploadProfileImage  from '../util/uploadProfileImage'; 
-import Register_image from '../assets/register_image.png';  
+import Register_image from '../assets/Register_image.png';  
 
 const Signup = () => {
 
