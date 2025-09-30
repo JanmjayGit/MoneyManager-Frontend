@@ -23,7 +23,7 @@ const Sidebar = ({activeMenu}) => {
                     <button
                         onClick={() => navigate(item.path)}
                         key={`menu_${index}`}
-                        className={`w-full flex items-center gap-4 text-[15px] py-3 px-6 rounded-lg mb-3 hover:bg-gray-200 transition cursor-pointer ${activeMenu === item.Label ? 'bg-gray-800 text-white' : 'text-gray-900 hover:text-black'}`}
+                        className={`w-full flex items-center gap-4 text-[15px] py-3 px-6 rounded-lg mb-3 hover:bg-gray-500 transition cursor-pointer ${activeMenu === item.Label ? 'bg-gray-800 text-white' : 'text-gray-900 hover:text-black'}`}
                     >
                         <item.icon className='text-xl' />
                         {item.Label}

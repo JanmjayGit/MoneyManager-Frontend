@@ -10,6 +10,7 @@ import { toast } from 'react-hot-toast';
 import { LoaderCircle } from 'lucide-react';
 import ProfilePhotoSelector from '../components/ProfilePhotoSelector';
 import  uploadProfileImage  from '../util/uploadProfileImage'; 
+import Register_image from '../assets/register_image.png';  
 
 const Signup = () => {
 
@@ -68,81 +69,95 @@ const Signup = () => {
       setIsLoading(false); // Reset loading state
     }
   }
+  
   return (
-    <div className='h-screen w-full relative flex items-center justify-center overflow-hidden'>
-       {/* Background image  */}
-       {/* <img src={assets.login_bg} alt="Background" className='absolute inset-0 w-full h-full object-cover'/> */}
-       <div className='relative z-10 w-full max-w-lg px-6'>
-          <div className='bg-white bg-opacity-95 backdrop-blur-sm p-8 rounded-lg shadow-2xl max-h-[90vh] overflow-y-auto border-2 border-indigo-500'>
-            <h3 className='text-2xl font-semibold text-slate-950 text-center mb-2'>Create Your Account</h3>
-            <p className='text-md text-slate-950 text-center mb-8'>
-              Start managing your finances with ease. Sign up now!
-            </p>
-            <form onSubmit={handleSubmit} className='space-y-4'>
-              <div className='flex justify-center mb-6'>
-                <ProfilePhotoSelector image={profilePhoto} setImage={setProfilePhoto} />
-              </div>
-              <div className='grid grid-cols-2 md:grid-cols-2 gap-4'>
-                <div className="col-span-2">
-                  <Input
-                  value={fullName}
-                  onChange={(target) => setFullName(target.value)}
-                  label="Full Name"
-                  placeholder="Enter your full name"
-                  type="text"
-                  />
-                </div>
-
-                <div className="col-span-2">
-                  <Input
-                  value={email}
-                  onChange={(target) => setEmail(target.value)}
-                  label="Email Address"
-                  placeholder="yourname@example.com"
-                  type="text"
-                  />
-                </div>
-
-                <div className='col-span-2'>
-                  <Input
-                  value={password}
-                  onChange={(target) => setPassword(target.value)}
-                  label="Password"
-                  placeholder="********"
-                  type="password"
-                  />
-                </div>
-              </div>
-
-              {error && (
-                <p className='text-red-500 text-sm text-center mt-2'>{error}</p>
-              )}
-
-              <button
-                disabled={isLoading}
-                type='submit'
-                className={`w-full px-6 py-3 flex justify-center items-center gap-2 
-                bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg 
-                shadow-md transition-all duration-300
-                    ${isLoading ? 'opacity-50 cursor-not-allowed' : ''} `}
-              >
-                {isLoading ? (
-                  <span className="flex items-center gap-2">
-                    <LoaderCircle className='animate-spin h-5 w-5' size={20} />
-                    Signing up...
-                  </span>
-                ) : (
-                  "Sign Up"
-                )}
-              </button>
-
-              <p className='text-sm text-slate-950 text-center mt-4'>
-                Already have an account?
-                <Link to="/login" className='text-indigo-500 hover:underline ml-1'>Login</Link>
+    <div className='h-screen w-full bg-gray-200 flex items-center justify-center p-4'>
+      {/* Main Container */}
+      <div className='w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 min-h-[600px]'>
+          
+          {/* Left Side - Form */}
+          <div className='flex items-center justify-center p-8 lg:p-12'>
+            <div className='w-full max-w-md'>
+              <h3 className='text-3xl font-bold text-slate-900 mb-2'>Create Your Account</h3>
+              <p className='text-gray-600 mb-8'>
+                Start managing your finances with ease. Sign up now!
               </p>
-            </form>
+              
+              <form onSubmit={handleSubmit} className='space-y-6'>
+                <div className='flex justify-center mb-6'>
+                  <ProfilePhotoSelector image={profilePhoto} setImage={setProfilePhoto} />
+                </div>
+                
+                <div className='space-y-4'>
+                  <Input
+                    value={fullName}
+                    onChange={(target) => setFullName(target.value)}
+                    label="Full Name"
+                    placeholder="Enter your full name"
+                    type="text"
+                  />
+
+                  <Input
+                    value={email}
+                    onChange={(target) => setEmail(target.value)}
+                    label="Email Address"
+                    placeholder="yourname@example.com"
+                    type="text"
+                  />
+
+                  <Input
+                    value={password}
+                    onChange={(target) => setPassword(target.value)}
+                    label="Password"
+                    placeholder="********"
+                    type="password"
+                  />
+                </div>
+
+                {error && (
+                  <p className='text-red-500 text-sm text-center mt-2'>{error}</p>
+                )}
+
+                <button
+                  disabled={isLoading}
+                  type='submit'
+                  className={`w-full px-6 py-3 flex justify-center items-center gap-2 
+                  bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg 
+                  shadow-md transition-all duration-300 hover:shadow-lg
+                      ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:scale-[1.02]'} `}
+                >
+                  {isLoading ? (
+                    <span className="flex items-center gap-2">
+                      <LoaderCircle className='animate-spin h-5 w-5' size={20} />
+                      Signing up...
+                    </span>
+                  ) : (
+                    "Sign Up"
+                  )}
+                </button>
+
+                <p className='text-sm text-gray-600 text-center mt-6'>
+                  Already have an account?
+                  <Link to="/login" className='text-indigo-500 hover:underline ml-1 font-medium'>Login</Link>
+                </p>
+              </form>
+            </div>
           </div>
-       </div>
+
+          {/* Right Side - Image */}
+          <div className='hidden lg:flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 p-8'>
+            <div className='text-center text-white'>
+              <img 
+                src={Register_image} 
+                alt="Register illustration" 
+                className='w-full h-full mx-auto mb-6 drop-shadow-xl'
+              />
+            </div>
+          </div>
+          
+        </div>
+      </div>
     </div>
   )
 }

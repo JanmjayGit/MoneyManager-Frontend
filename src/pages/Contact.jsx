@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Mail, User, MessageSquare, Send, CheckCircle, Phone, MapPin } from 'lucide-react'
 import { toast } from 'react-hot-toast'
 import Navbar from '../components/Navbar'
+import Navigation from '../components/Navigation'
+import { useNavigate } from 'react-router-dom'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,8 +14,15 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const navigate = useNavigate()
 
- 
+  useEffect(() => {
+    // Check if user is logged in
+    const token = localStorage.getItem('token')
+    setIsLoggedIn(!!token)
+  }, [])
+
   const WEB3FORMS_ACCESS_KEY = "677d7ebb-93ba-41a0-a325-3cd3dd7bf6ff" // web3forms key
 
   const handleChange = (e) => {
@@ -60,7 +69,8 @@ const Contact = () => {
 
   return (
     <div>
-      <Navbar />
+      {isLoggedIn ? <Navbar /> : <Navigation />}
+      
       <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-8xl mx-auto">
           {/* Header */}

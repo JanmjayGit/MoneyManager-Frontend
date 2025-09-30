@@ -1,11 +1,18 @@
-import React, { use } from 'react'
-import { Shield, Target, Users, TrendingUp, Award, CheckCircle, BarChart3, PieChart, Calculator, Smartphone } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { Shield, Target, Users, TrendingUp, Award, CheckCircle, BarChart3, PieChart, Smartphone } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar'
+import Navigation from '../components/Navigation'
 
 const AboutUs = () => {
+  const navigate = useNavigate()
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-    const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    setIsLoggedIn(!!token)
+  }, [])
+
   const features = [
     {
       icon: <BarChart3 className="w-8 h-8" />,
@@ -56,12 +63,13 @@ const AboutUs = () => {
 
   return (
     <div>
-      <Navbar />
+      {isLoggedIn ? <Navbar /> : <Navigation />}
+    
       <div className="py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-8xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 mt-4">
               About <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">MoneyManager</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
