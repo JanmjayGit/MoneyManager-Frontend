@@ -7,6 +7,8 @@ const axiosConfig = axios.create({
         'Content-Type': 'application/json',
         Accept: 'application/json',
     },
+    withCredentials: true, // Important for CORS
+    timeout: 30000, // 30 seconds (Render can be slow on free tier)
 });
 
 
