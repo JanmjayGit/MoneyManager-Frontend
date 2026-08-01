@@ -29,10 +29,10 @@ const IncomeOverview = ({ transactions, onAddIncome }) => {
                     <p className="text-sm font-medium text-white">{data.formattedDate}</p>
                     <div className="mt-2">
                         <p className="text-lg font-bold text-green-600">
-                            ₹{data.cumulativeIncome?.toFixed(2)}
+                            ₹{data.dailyIncome?.toFixed(2)}
                         </p>
                         <p className="text-xs text-gray-300">
-                            Daily: ₹{data.dailyIncome?.toFixed(2)} • {data.transactionCount} transactions
+                            {data.transactionCount} transaction{data.transactionCount !== 1 ? 's' : ''}
                         </p>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ const IncomeOverview = ({ transactions, onAddIncome }) => {
 
                     <div className='bg-gray-800 p-3 rounded-lg'>
                         <div className='flex items-center justify-end gap-2'>
-                            <BarChart3 className='w-4 h-4 text-emerald-500' />
+                            <IndianRupee className='w-4 h-4 text-emerald-500' />
                             <span className='text-sm text-emerald-500 font-medium'>Average</span>
                         </div>
                         <p className='text-lg font-bold text-emerald-500'>
@@ -108,7 +108,7 @@ const IncomeOverview = ({ transactions, onAddIncome }) => {
                                 {/* Smooth Area Chart */}
                                 <Area
                                     type="monotone"
-                                    dataKey="cumulativeIncome"
+                                    dataKey="dailyIncome"
                                     stroke="#10B981"
                                     strokeWidth={3}
                                     fill="url(#incomeGradient)"

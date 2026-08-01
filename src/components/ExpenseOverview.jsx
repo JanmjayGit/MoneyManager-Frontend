@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { prepareExpenseLineChartData, getExpenseStats } from '../util/chartDataHelper'; // Adjust path as needed
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { TrendingDown, DollarSign, Calendar, BarChart3 } from 'lucide-react';
+import { TrendingDown, DollarSign, Calendar, BarChart3, IndianRupee } from 'lucide-react';
 
 const ExpenseOverview = ({ transactions, onAddExpense }) => {
     const [chartData, setChartData] = useState([]);
@@ -28,11 +28,11 @@ const ExpenseOverview = ({ transactions, onAddExpense }) => {
                 <div className="bg-gray-900 p-4 border border-gray-700 rounded-lg shadow-lg">
                     <p className="text-sm font-medium text-white">{data.formattedDate}</p>
                     <div className="mt-2">
-                        <p className="text-lg font-bold text-red-600">
-                            ₹{data.cumulativeExpense?.toFixed(2)}
+                        <p className="text-lg font-bold text-green-600">
+                            ₹{data.dailyExpense?.toFixed(2)}
                         </p>
                         <p className="text-xs text-gray-300">
-                            Daily: ₹{data.dailyExpense?.toFixed(2)} • {data.transactionCount} transactions
+                            {data.transactionCount} transaction{data.transactionCount !== 1 ? 's' : ''}
                         </p>
                     </div>
                 </div>
@@ -58,7 +58,7 @@ const ExpenseOverview = ({ transactions, onAddExpense }) => {
                 <div className='grid grid-cols-2 gap-4 text-right'>
                     <div className='bg-gray-800 p-3 rounded-lg'>
                         <div className='flex items-center justify-end gap-2'>
-                            <DollarSign className='w-4 h-4 text-emerald-500' />
+                            <IndianRupee className='w-4 h-4 text-emerald-500' />
                             <span className='text-sm text-emerald-500 font-medium'>Total</span>
                         </div>
                         <p className='text-lg font-bold text-emerald-500'>
@@ -68,7 +68,7 @@ const ExpenseOverview = ({ transactions, onAddExpense }) => {
 
                     <div className='bg-gray-800 p-3 rounded-lg'>
                         <div className='flex items-center justify-end gap-2'>
-                            <BarChart3 className='w-4 h-4 text-emerald-500' />
+                            <IndianRupee className='w-4 h-4 text-emerald-500' />
                             <span className='text-sm text-emerald-500 font-medium'>Average</span>
                         </div>
                         <p className='text-lg font-bold text-emerald-500'>
@@ -108,7 +108,7 @@ const ExpenseOverview = ({ transactions, onAddExpense }) => {
                                 {/* Smooth Area Chart */}
                                 <Area
                                     type="monotone"
-                                    dataKey="cumulativeExpense"
+                                    dataKey="dailyExpense"
                                     stroke="#EF4444"
                                     strokeWidth={3}
                                     fill="url(#expenseGradient)"

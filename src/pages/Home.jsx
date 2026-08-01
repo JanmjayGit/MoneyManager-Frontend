@@ -52,24 +52,24 @@ const Home = () => {
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
             {/* Diaplay card details */}
             <InfoCard 
-              icon={<Wallet />}
+              icon={<Wallet  />}
               label="Total Balance"
               value={addThousandsSeparator(dashboardData?.totalBalance || 0.00)} 
-              color="bg-gray-500"
+              color="bg-green-500"
             />
 
             <InfoCard 
               icon={<WalletCards />}
               label="Total Income"
               value={addThousandsSeparator(dashboardData?.totalIncome || 0.00)}
-              color="bg-gray-500"
+              color="bg-red-500"
             />
 
             <InfoCard 
               icon={<Coins />}
               label="Total Expense"
               value={addThousandsSeparator(dashboardData?.totalExpense || 0.00)}
-              color="bg-gray-500"
+              color="bg-yellow-500"
             />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 mt-6 gap-6'>

@@ -98,7 +98,7 @@ const Income = () => {
         // Close the modal
         setOpenAddIncomeModal(false);
         // Refresh the income list
-        fetchIncomeCategories();
+        fetchIncomeDetails();
       }
     } catch (error) {
       console.error("Failed to add income:", error);
