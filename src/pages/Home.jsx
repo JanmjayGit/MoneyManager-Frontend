@@ -55,21 +55,21 @@ const Home = () => {
               icon={<Wallet />}
               label="Total Balance"
               value={addThousandsSeparator(dashboardData?.totalBalance || 0.00)} 
-              color="bg-gradient-to-r from-indigo-600 to-purple-600"
+              color="bg-gray-500"
             />
 
             <InfoCard 
               icon={<WalletCards />}
               label="Total Income"
               value={addThousandsSeparator(dashboardData?.totalIncome || 0.00)}
-              color="bg-gradient-to-r from-green-400 to-green-600"
+              color="bg-gray-500"
             />
 
             <InfoCard 
               icon={<Coins />}
               label="Total Expense"
               value={addThousandsSeparator(dashboardData?.totalExpense || 0.00)}
-              color="bg-gradient-to-r from-red-400 to-red-600"
+              color="bg-gray-500"
             />
           </div>
           <div className='grid grid-cols-1 md:grid-cols-2 mt-6 gap-6'>

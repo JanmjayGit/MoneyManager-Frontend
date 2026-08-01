@@ -17,7 +17,7 @@ const DeleteAlert = ({content, onDelete}) => {
     }
   return (
     <div>
-        <p className='text-sm'>{content}</p>
+        <p className='text-sm text-gray-300'>{content}</p>
         <div className='flex justify-center mt-6 gap-4'>
             <button
                 onClick={handleDelete}

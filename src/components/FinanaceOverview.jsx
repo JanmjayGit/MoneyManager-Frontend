@@ -13,9 +13,9 @@ const FinanaceOverview = ({totalBalance, totalIncome, totalExpense}) => {
         { name: "Total Balance", amount: totalBalance || 0 },
     ];
   return (
-    <div className='card'>
+    <div className='card bg-gray-900 text-gray-200 rounded-xl border border-gray-700 p-6'>
         <div className='flex items-center justify-between'>
-            <h5 className='text-lg'>Financial Overview</h5>
+            <h5 className='text-lg text-white'>Financial Overview</h5>
         </div>
         <CustomPieChart 
         data={balanceData}

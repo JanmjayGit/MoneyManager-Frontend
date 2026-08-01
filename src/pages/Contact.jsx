@@ -53,7 +53,7 @@ const Contact = () => {
         setIsSubmitted(true)
         toast.success('Message sent successfully!')
         setFormData({ name: '', email: '', subject: '', message: '' })
-        
+
         // Reset success state after 5 seconds
         setTimeout(() => setIsSubmitted(false), 5000)
       } else {
@@ -70,54 +70,54 @@ const Contact = () => {
   return (
     <div>
       {isLoggedIn ? <Navbar /> : <Navigation />}
-      
-      <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-8xl mx-auto">
+
+      <div className="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 text-white">
+        <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-6xl font-bold bg-gradient-to-br from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">Get in Touch</h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Have questions about MoneyManager? We'd love to hear from you. 
+            <h1 className="text-6xl font-bold text-emerald-500 mb-4">Get in Touch</h1>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Have questions about MoneyManager? We'd love to hear from you.
               Send us a message and we'll respond as soon as possible.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
+            <div className="bg-gray-900 rounded-2xl p-8 text-white border border-gray-700">
               <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-              <p className="text-indigo-100 mb-8">
+              <p className="text-gray-300 mb-8">
                 Fill out the form and our team will get back to you within 24 hours.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-opacity-20 rounded-lg flex items-center justify-center">
-                    <Mail className='h-10 w-10'/>
+                    <Mail className='h-10 w-10' />
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-indigo-100">prajapatijanmjay@gmail.com</p>
+                    <p className="text-gray-300">prajapatijanmjay@gmail.com</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0 w-10 h-10 bg-opacity-20 rounded-lg flex items-center justify-center">
                     <Phone className='h-10 w-10' />
                   </div>
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-indigo-100">+91 9908XXXX07</p>
+                    <p className="text-gray-300">+91 9908XXXX07</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0 w-10 h-10  bg-opacity-20 rounded-lg flex items-center justify-center">
                     <MapPin className='h-10 w-10' />
                   </div>
                   <div>
                     <p className="font-medium">Address</p>
-                    <p className="text-indigo-100">Modern Valley, kharar, Punjab, 140301</p>
+                    <p className="text-gray-300">Modern Valley, kharar, Punjab, 140301</p>
                   </div>
                 </div>
               </div>
@@ -130,19 +130,19 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-8">
+            <div className="bg-gray-900 rounded-2xl shadow-xl p-8 border border-gray-700">
               {isSubmitted ? (
                 <div className="text-center py-12">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
-                  <p className="text-gray-600">
+                  <h3 className="text-2xl font-semibold text-white mb-2">Message Sent!</h3>
+                  <p className="text-gray-300">
                     Thank you for your message. We'll get back to you soon.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                       <User className="inline w-4 h-4 mr-2" />
                       Full Name
                     </label>
@@ -153,13 +153,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200"
+                      className="w-full px-4 py-3 bg-gray-700 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-200 resize-none"
                       placeholder="Enter your full name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                       <Mail className="inline w-4 h-4 mr-2" />
                       Email Address
                     </label>
@@ -170,13 +170,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200"
+                      className="w-full px-4 py-3 bg-gray-700 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-200 resize-none"
                       placeholder="Enter your email address"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">
                       <MessageSquare className="inline w-4 h-4 mr-2" />
                       Subject
                     </label>
@@ -187,13 +187,13 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200"
+                      className="w-full px-4 py-3 bg-gray-700 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-200 resize-none"
                       placeholder="What is this regarding?"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                       <MessageSquare className="inline w-4 h-4 mr-2" />
                       Message
                     </label>
@@ -204,7 +204,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-200 resize-none"
+                      className="w-full px-4 py-3 bg-gray-700 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-200 resize-none"
                       placeholder="Tell us more about your inquiry..."
                     />
                   </div>
@@ -212,9 +212,8 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 ${
-                      isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
+                    className={`w-full flex items-center justify-center space-x-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                      }`}
                   >
                     {isSubmitting ? (
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -224,7 +223,7 @@ const Contact = () => {
                     <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                   </button>
 
-                  <p className="text-xs text-gray-500 text-center mt-4">
+                  <p className="text-xs text-gray-300 text-center mt-4">
                     By submitting this form, you agree to our privacy policy and terms of service.
                   </p>
                 </form>
@@ -234,31 +233,31 @@ const Contact = () => {
 
           {/* FAQ Section */}
           <div className="mt-16">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+            <h2 className="text-3xl font-bold text-center text-white mb-8">
               Frequently Asked Questions
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="font-semibold text-gray-900 mb-2">How secure is my financial data?</h3>
-                <p className="text-gray-600 text-sm">
+              <div className="bg-gray-900 rounded-lg p-6 shadow-md border border-gray-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <h3 className="font-semibold text-white mb-2">How secure is my financial data?</h3>
+                <p className="text-gray-300 text-sm">
                   We use bank-level encryption and security measures to protect your data. Your information is never shared with third parties.
                 </p>
               </div>
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="font-semibold text-gray-900 mb-2">Can I export my data?</h3>
-                <p className="text-gray-600 text-sm">
+              <div className="bg-gray-900 rounded-lg p-6 shadow-md border border-gray-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <h3 className="font-semibold text-white mb-2">Can I export my data?</h3>
+                <p className="text-gray-300 text-sm">
                   Yes, you can export your financial data in Excel format at any time from your dashboard.
                 </p>
               </div>
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="font-semibold text-gray-900 mb-2">Is there a mobile app?</h3>
-                <p className="text-gray-600 text-sm">
+              <div className="bg-gray-900 rounded-lg p-6 shadow-md border border-gray-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <h3 className="font-semibold text-white mb-2">Is there a mobile app?</h3>
+                <p className="text-gray-300 text-sm">
                   Our web application is fully responsive and works great on mobile devices. A native app is in development.
                 </p>
               </div>
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="font-semibold text-gray-900 mb-2">How do I reset my password?</h3>
-                <p className="text-gray-600 text-sm">
+              <div className="bg-gray-900 rounded-lg p-6 shadow-md border border-gray-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <h3 className="font-semibold text-white mb-2">How do I reset my password?</h3>
+                <p className="text-gray-300 text-sm">
                   You can reset your password from the login page or contact support for assistance.
                 </p>
               </div>

@@ -1,4 +1,4 @@
-import {React, useEffect, useState}from 'react'
+import { React, useEffect, useState } from 'react'
 import Dashboard from '../components/Dashboard'
 import { Plus } from 'lucide-react'
 import Categorylist from '../components/Categorylist'
@@ -18,18 +18,18 @@ const Category = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   UseUser();
-  const fetchCategoryDetails = async() => {
-    if(loading) return;
+  const fetchCategoryDetails = async () => {
+    if (loading) return;
     setLoading(true);
-    try{
+    try {
       const response = await axiosConfig.get(API_ENDPOINTS.GET_CATEGORIES);
-      if(response.status === 200){
+      if (response.status === 200) {
         setCategories(response.data);
       }
-    }catch(error){
+    } catch (error) {
       console.error("Failed to fetch categories. Please try again later:", error);
       toast.error(error.message);
-    }finally{
+    } finally {
       setLoading(false);
     }
 
@@ -37,12 +37,12 @@ const Category = () => {
 
   useEffect(() => {
     fetchCategoryDetails();
-  },[]);
+  }, []);
 
   const handleAddCategory = async (category) => {
-    const {name, type, icon} = category;
+    const { name, type, icon } = category;
 
-    if(!name.trim()){
+    if (!name.trim()) {
       toast.error("Category name is required");
       return;
     }
@@ -50,19 +50,19 @@ const Category = () => {
     const isDuplicate = categories.some((category) => {
       return category.name.toLowerCase() === name.trim().toLowerCase();
     })
-    if(isDuplicate){
+    if (isDuplicate) {
       toast.error("Category name already exists");
       return;
     }
 
-    try{
-      const response = await axiosConfig.post(API_ENDPOINTS.ADD_CATEGORY, {name, type, icon});
-      if(response.status === 201){
+    try {
+      const response = await axiosConfig.post(API_ENDPOINTS.ADD_CATEGORY, { name, type, icon });
+      if (response.status === 201) {
         toast.success("Category Added Successfully");
         setOpenAddCategoryModal(false);
         fetchCategoryDetails();
       }
-    }catch(error){
+    } catch (error) {
       console.log("Error Adding Category:", error);
       toast.error(error.response?.data?.message || "Failed to add categoty");
     }
@@ -74,31 +74,31 @@ const Category = () => {
   }
 
   const handleUpdateCategory = async (updatedCategory) => {
-    const {id, name, type, icon} = updatedCategory;
-    if(!name.trim()){
+    const { id, name, type, icon } = updatedCategory;
+    if (!name.trim()) {
       toast.error("Category name is required");
       return;
     }
-    if(!id){
+    if (!id) {
       toast.error("Category Id is missing");
       return;
     }
-    try{
-      await axiosConfig.put(API_ENDPOINTS.UPDATE_CATEGORY(id), {name, type, icon});
+    try {
+      await axiosConfig.put(API_ENDPOINTS.UPDATE_CATEGORY(id), { name, type, icon });
       setOpenUpdateCategoryModal(false);
       setSelectedCategory(null);
       toast.success("Category updated successfully");
       fetchCategoryDetails();
-    }catch(error){
+    } catch (error) {
       console.log("Error updating the category:", error.response?.data?.message || error.message);
       toast.error(error.response?.data?.message || "Failed to update the category");
     }
   }
 
   const handleDeleteCategory = async (categoryToDelete) => {
-  // Get the category ID
+    // Get the category ID
     const categoryId = categoryToDelete?.id || categoryToDelete?._id;
-    
+
     if (!categoryId) {
       toast.error("Category ID is missing");
       return;
@@ -108,14 +108,14 @@ const Category = () => {
     const isConfirmed = window.confirm(
       `Are you sure you want to delete "${categoryToDelete.name}" category? This action cannot be undone.`
     );
-    
+
     if (!isConfirmed) {
       return;
     }
 
     try {
       const response = await axiosConfig.delete(API_ENDPOINTS.DELETE_CATEGORY(categoryId));
-      
+
       if (response.status === 200 || response.status === 204) {
         toast.success("Category deleted successfully");
         // Refresh the category list
@@ -130,22 +130,22 @@ const Category = () => {
   return (
     <div>
       <Dashboard activeMenu="Category">
-        <div className='m-5 mx-auto'>
+        <div className='m-5 mx-auto text-white'>
           {/* add button to add category */}
           <div className='flex justify-between items-center mb-5'>
-            <h2 className='text-2xl font-semibold '>All Categories</h2>
-            <button 
+            <h2 className='text-2xl font-semibold text-white'>All Categories</h2>
+            <button
               onClick={() => setOpenAddCategoryModal(true)}
-              className='add-btn flex items-center gap-1  bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:scale-110 h-10 p-2 rounded-lg'>
-              Add Category 
+              className='add-btn flex items-center gap-1 bg-emerald-500 hover:bg-emerald-600 text-white h-10 p-2 rounded-lg'>
+              Add Category
             </button>
 
           </div>
 
           {/* category List */}
-          <Categorylist categories={categories} onEditCategory={handleEditCategory} onDeleteCategory={handleDeleteCategory}/>
+          <Categorylist categories={categories} onEditCategory={handleEditCategory} onDeleteCategory={handleDeleteCategory} />
           {/* In your Category.js component */}
-          
+
           {/* Adding Category model */}
           <Model
             title="Add Category"
@@ -154,7 +154,7 @@ const Category = () => {
           >
             <AddCategoryForm onAddCategory={handleAddCategory} />
           </Model>
-            
+
           {/* updating Category model */}
           <Model
             onClose={() => {
@@ -164,20 +164,18 @@ const Category = () => {
             isOpen={openUpdateCategoryModal}
             title="Update Category"
           >
-              <AddCategoryForm
-                initialCategoryData={selectedCategory} 
-                onAddCategory={handleUpdateCategory}
-                isEditing={true}
-              />
+            <AddCategoryForm
+              initialCategoryData={selectedCategory}
+              onAddCategory={handleUpdateCategory}
+              isEditing={true}
+            />
           </Model>
         </div>
-       </Dashboard>
+      </Dashboard>
     </div>
   )
 }
 
 export default Category
-
-
 
 

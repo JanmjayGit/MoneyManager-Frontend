@@ -64,50 +64,50 @@ const AboutUs = () => {
   return (
     <div>
       {isLoggedIn ? <Navbar /> : <Navigation />}
-    
-      <div className="py-6 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-8xl mx-auto">
+
+      <div className="py-6 px-4 sm:px-6 lg:px-8 bg-gray-800 text-white min-h-screen">
+        <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 mt-4">
-              About <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">MoneyManager</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 mt-4">
+              About <span className="text-emerald-500">MoneyManager</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Your trusted partner in personal finance management. We're dedicated to making financial tracking 
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Your trusted partner in personal finance management. We're dedicated to making financial tracking
               simple, secure, and insightful for everyone.
             </p>
           </div>
 
           {/* Story Section */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-16">
+          <div className="bg-gray-900 rounded-2xl shadow-lg p-8 md:p-12 mb-16 border border-gray-700">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
-                <div className="space-y-4 text-gray-600 leading-relaxed">
+                <h2 className="text-3xl font-bold text-white mb-6">Our Story</h2>
+                <div className="space-y-4 text-gray-300 leading-relaxed">
                   <p>
-                    MoneyManager was born from a simple frustration: managing personal finances shouldn't be complicated. 
-                    Traditional budgeting tools were either too complex or too basic, leaving users struggling to gain 
+                    MoneyManager was born from a simple frustration: managing personal finances shouldn't be complicated.
+                    Traditional budgeting tools were either too complex or too basic, leaving users struggling to gain
                     real insights into their spending habits.
                   </p>
                   <p>
-                    We set out to build something different - a platform that combines powerful analytics with 
-                    intuitive design, making financial management accessible to everyone regardless of their 
+                    We set out to build something different - a platform that combines powerful analytics with
+                    intuitive design, making financial management accessible to everyone regardless of their
                     technical expertise.
                   </p>
                   <p>
-                    Today, thousands of users trust MoneyManager to track their income, expenses, and financial goals. 
+                    Today, thousands of users trust MoneyManager to track their income, expenses, and financial goals.
                     We're proud to be part of their journey toward financial wellness.
                   </p>
                 </div>
               </div>
-              <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-8">
+              <div className="bg-gray-800 rounded-xl p-8">
                 <div className="grid grid-cols-2 gap-6">
                   {stats.map((stat, index) => (
                     <div key={index} className="text-center">
-                      <div className="text-2xl md:text-3xl font-bold text-indigo-600 mb-2">
+                      <div className="text-2xl md:text-3xl font-bold text-emerald-500 mb-2">
                         {stat.number}
                       </div>
-                      <div className="text-sm text-gray-600 font-medium">
+                      <div className="text-sm text-gray-300 font-medium">
                         {stat.label}
                       </div>
                     </div>
@@ -120,12 +120,12 @@ const AboutUs = () => {
           {/* Mission, Vision, Values */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {teamValues.map((value, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
-                <div className="w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-white">
+              <div key={index} className="bg-gray-900 rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300 border border-gray-700">
+                <div className="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-white">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -133,34 +133,34 @@ const AboutUs = () => {
           {/* Features Section */}
           <div className="mb-16">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">What Makes Us Different</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-white mb-4">What Makes Us Different</h2>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 We've built MoneyManager with features that truly matter for personal finance management.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {features.map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="w-16 h-16 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center mb-6 text-white">
+                <div key={index} className="bg-gray-900 rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700">
+                  <div className="w-16 h-16 bg-emerald-600 rounded-xl flex items-center justify-center mb-6 text-white">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">{feature.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Why Choose MoneyManager */}
-          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl p-8 md:p-12 text-white mb-16">
+          <div className="bg-gray-900 rounded-2xl p-8 md:p-12 text-white mb-16 border border-gray-700">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Why Choose MoneyManager?</h2>
-              <p className="text-xl text-indigo-100 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Join thousands of users who have transformed their financial lives with our platform.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 "Easy-to-use interface designed for everyone",
@@ -172,7 +172,7 @@ const AboutUs = () => {
               ].map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-3">
                   <CheckCircle className="w-6 h-6 text-green-300 flex-shrink-0 mt-0.5" />
-                  <span className="text-indigo-100">{benefit}</span>
+                  <span className="text-gray-300">{benefit}</span>
                 </div>
               ))}
             </div>
@@ -180,29 +180,29 @@ const AboutUs = () => {
 
           {/* Team Section */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Built with Care</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-              MoneyManager is crafted by a dedicated team of developers, designers, and financial experts 
+            <h2 className="text-3xl font-bold text-white mb-6">Built with Care</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+              MoneyManager is crafted by a dedicated team of developers, designers, and financial experts
               who are passionate about helping people achieve financial wellness.
             </p>
-            <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="bg-gray-900 rounded-xl shadow-lg p-8 border border-gray-700">
               <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
                 <div className="text-center">
-                  <TrendingUp className="w-12 h-12 text-indigo-600 mx-auto mb-3" />
-                  <h4 className="font-semibold text-gray-900">Continuous Innovation</h4>
-                  <p className="text-sm text-gray-600">Always improving based on user feedback</p>
+                  <TrendingUp className="w-12 h-12 text-emerald-500 mx-auto mb-3" />
+                  <h4 className="font-semibold text-white">Continuous Innovation</h4>
+                  <p className="text-sm text-gray-300">Always improving based on user feedback</p>
                 </div>
-                <div className="hidden md:block w-px h-16 bg-gray-300"></div>
+                <div className="hidden md:block w-px h-16 bg-gray-700"></div>
                 <div className="text-center">
-                  <Users className="w-12 h-12 text-indigo-600 mx-auto mb-3" />
-                  <h4 className="font-semibold text-gray-900">User-Centric Design</h4>
-                  <p className="text-sm text-gray-600">Every feature designed with you in mind</p>
+                  <Users className="w-12 h-12 text-emerald-500 mx-auto mb-3" />
+                  <h4 className="font-semibold text-white">User-Centric Design</h4>
+                  <p className="text-sm text-gray-300">Every feature designed with you in mind</p>
                 </div>
-                <div className="hidden md:block w-px h-16 bg-gray-300"></div>
+                <div className="hidden md:block w-px h-16 bg-gray-700"></div>
                 <div className="text-center">
-                  <Shield className="w-12 h-12 text-indigo-600 mx-auto mb-3" />
-                  <h4 className="font-semibold text-gray-900">Security First</h4>
-                  <p className="text-sm text-gray-600">Your data protection is our top priority</p>
+                  <Shield className="w-12 h-12 text-emerald-500 mx-auto mb-3" />
+                  <h4 className="font-semibold text-white">Security First</h4>
+                  <p className="text-sm text-gray-300">Your data protection is our top priority</p>
                 </div>
               </div>
             </div>
@@ -210,15 +210,15 @@ const AboutUs = () => {
 
           {/* CTA Section */}
           <div className="text-center">
-            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Take Control?</h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <div className="bg-gray-900 rounded-2xl shadow-lg p-8 md:p-12 border border-gray-700">
+              <h2 className="text-3xl font-bold text-white mb-4">Ready to Take Control?</h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                 Join our community of financially empowered users and start your journey toward better money management today.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
+                <button
                   onClick={() => navigate('/signup')}
-                  className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
+                  className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
                   Get Started Now
                 </button>
               </div>

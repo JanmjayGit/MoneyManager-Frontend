@@ -36,13 +36,13 @@ const ProfilePhotoSelector = ({image, setImage}) => {
         />
 
         {!image ? (
-            <div className='w-20 h-20 flex items-center justify-center bg-indigo-50 rounded-full relative'>
-                <User className='text-indigo-500' size={35}/>
+            <div className='w-20 h-20 flex items-center justify-center bg-gray-700 rounded-full relative'>
+                <User className='text-white' size={35}/>
 
                 <button 
                 onClick={onChooseFile} 
-                className='h-8 w-8 flex items-center justify-center bg-primary text-white rounded-full absolute -bottom-1 -right-1'>
-                    <Upload size={15} className='text-indigo-600' />
+                className='h-8 w-8 flex items-center justify-center bg-gray-500 hover:bg-emerald-600 text-white rounded-full absolute -bottom-1 -right-1'>
+                    <Upload size={15} className='text-white' />
                 </button>
             </div>
         ):(

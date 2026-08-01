@@ -7,7 +7,7 @@ const Dashboard = ({children, activeMenu}) => {
   
   const{user} = useContext(AppContext);
   return (
-    <div>
+    <div className='bg-gray-800 min-h-screen'>
         <Navbar activeMenu={activeMenu}/>
 
         {user && (
@@ -15,7 +15,7 @@ const Dashboard = ({children, activeMenu}) => {
             <div className='max-[1080px]:hidden'>
               <Sidebar activeMenu={activeMenu} />
             </div>
-            <div className='grow mx-5'>{children}</div>
+            <div className='grow mx-5 text-white'>{children}</div>
           </div>
         )}
     </div>

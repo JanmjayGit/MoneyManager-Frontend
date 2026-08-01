@@ -9,12 +9,12 @@ const CustomPieChart = ({ data, label, totalAmount, colors, showTextAnchor = tru
     if (active && payload && payload.length) {
       const data = payload[0].payload
       return (
-        <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200">
-          <p className="font-semibold text-gray-800">{data.name}</p>
-          <p className="text-sm text-gray-600">
-            Amount: <span className="font-medium text-gray-900">₹{addThousandsSeparator(data.amount)}</span>
+        <div className="bg-gray-900 p-3 rounded-lg shadow-lg border border-gray-700">
+          <p className="font-semibold text-white">{data.name}</p>
+          <p className="text-sm text-gray-300">
+            Amount: <span className="font-medium text-white">₹{addThousandsSeparator(data.amount)}</span>
           </p>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-300">
             {((data.amount / data.total) * 100).toFixed(1)}% of total
           </p>
         </div>
@@ -64,7 +64,7 @@ const CustomPieChart = ({ data, label, totalAmount, colors, showTextAnchor = tru
               className="w-3 h-3 rounded-full"
               style={{ backgroundColor: entry.color }}
             />
-            <span className="text-sm text-gray-700 font-medium">
+            <span className="text-sm text-gray-300 font-medium">
               {entry.value}
             </span>
           </div>
@@ -96,7 +96,7 @@ const CustomPieChart = ({ data, label, totalAmount, colors, showTextAnchor = tru
                 <Cell 
                   key={`cell-${index}`} 
                   fill={colors[index % colors.length]}
-                  stroke="#fff"
+                  stroke="#111827"
                   strokeWidth={2}
                 />
               ))}
@@ -108,8 +108,8 @@ const CustomPieChart = ({ data, label, totalAmount, colors, showTextAnchor = tru
         
         {/* Center Label */}
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <p className="text-sm text-gray-600 font-medium">{label}</p>
-          <p className="text-xl font-bold text-gray-900 mt-1">{totalAmount}</p>
+          <p className="text-sm text-gray-300 font-medium">{label}</p>
+          <p className="text-xl font-bold text-white mt-1">{totalAmount}</p>
         </div>
       </div>
 
@@ -118,18 +118,18 @@ const CustomPieChart = ({ data, label, totalAmount, colors, showTextAnchor = tru
         {data.map((item, index) => (
           <div 
             key={index}
-            className="bg-gray-50 rounded-lg p-3 text-center hover:bg-gray-100 transition-colors"
+            className="bg-gray-800 rounded-lg p-3 text-center hover:bg-gray-700 transition-colors"
           >
             <div className="flex items-center justify-center gap-2 mb-2">
               <div 
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: colors[index % colors.length] }}
               />
-              <span className="text-xs font-medium text-gray-700 truncate">
+              <span className="text-xs font-medium text-gray-300 truncate">
                 {item.name.replace('Total ', '')}
               </span>
             </div>
-            <p className="text-sm font-bold text-gray-900">
+            <p className="text-sm font-bold text-white">
               ₹{addThousandsSeparator(item.amount)}
             </p>
           </div>
@@ -140,4 +140,3 @@ const CustomPieChart = ({ data, label, totalAmount, colors, showTextAnchor = tru
 }
 
 export default CustomPieChart;
-

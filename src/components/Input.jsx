@@ -15,20 +15,20 @@ const Input = ({ label, value = "", onChange, placeholder, type, isSelect, optio
 
     return (
         <div className='mb-4'>
-            <label className='text-[13px] text-gray-950 block mb-1'>{label}</label>
+            <label className='text-[13px] text-white block mb-1'>{label}</label>
             <div className='relative'>
 
                 {
                     isSelect ? (
                         <select
-                            className='w-full bg-transparent outline-none border-2 border-indigo-500 rounded-md py-2 px-3 text-gray-950 leading focus:outline-none '
+                            className='w-full bg-gray-700 outline-none border border-gray-600 rounded-md py-2 px-3 text-white leading focus:outline-none focus:border-emerald-500'
                             value={value || ""}
                             onChange={handleChange}
                         >
-                            <option value="">Select {label} </option>
+                            <option value="" className='bg-gray-700 text-white'>Select {label} </option>
                             {
                                 options.map((option) => (
-                                    <option key={option.value} value={option.value}>
+                                    <option key={option.value} value={option.value} className='bg-gray-700 text-white'>
                                         {option.label}
                                     </option>
                                 ))
@@ -36,7 +36,7 @@ const Input = ({ label, value = "", onChange, placeholder, type, isSelect, optio
                         </select>
 
                     ) : (<input
-                        className='w-full bg-transparent border-2 border-indigo-500 outline-none rounded-md py-2 px-3 pr-10 text-gray-900 leading-tight focus:outline-none '
+                        className='w-full bg-gray-700 border border-gray-600 outline-none rounded-md py-2 px-3 pr-10 text-white placeholder-gray-400 leading-tight focus:outline-none focus:border-emerald-500'
                         type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
                         placeholder={placeholder}
                         value={value || ""} // Prevent uncontrolled input warning
@@ -49,13 +49,13 @@ const Input = ({ label, value = "", onChange, placeholder, type, isSelect, optio
                         {showPassword ? (
                             <Eye
                                 size={20}
-                                className='text-slate-400'
+                                className='text-gray-400'
                                 onClick={togglePasswordVisibility}
                             />
                         ) : (
                             <EyeOff
                                 size={20}
-                                className='text-slate-400'
+                                className='text-gray-400'
                                 onClick={togglePasswordVisibility}
                             />
                         )}

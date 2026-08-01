@@ -53,14 +53,14 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-gray-200">
+    <div className="h-screen w-full flex items-center justify-center bg-gray-800">
       {/* Gray background wrapper */}
-      <div className="max-w-5xl w-full min-h-[600px] bg-white rounded-xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2">
-        
+      <div className="max-w-5xl w-full min-h-[600px] bg-gray-900 text-gray-200 rounded-xl shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 border border-gray-700">
+
         {/* Left Side - Form */}
         <div className="p-10 flex flex-col justify-center">
-          <h3 className="text-3xl font-bold text-slate-900 mb-2 text-left">Welcome Back</h3>
-          <p className="text-sm text-gray-600 mb-8 text-left">
+          <h3 className="text-3xl font-bold text-white mb-2 text-left">Welcome Back</h3>
+          <p className="text-sm text-gray-300 mb-8 text-left">
             It’s great to see you again your space is waiting.
           </p>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -85,7 +85,7 @@ const Login = () => {
               type="submit"
               disabled={isLoading}
               className={`w-full px-6 py-3 flex justify-center items-center gap-2 
-               bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg 
+               bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg 
                 shadow-md transition-all duration-300
                  ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
@@ -99,15 +99,15 @@ const Login = () => {
               )}
             </button>
 
-            <p className="text-sm text-gray-600 text-center mt-4">
+            <p className="text-sm text-gray-300 text-center mt-4">
               Don't have an account?
-              <Link to="/signup" className="text-indigo-500 hover:underline ml-1">Sign up</Link>
+              <Link to="/signup" className="text-emerald-500 hover:underline ml-1">Sign up</Link>
             </p>
           </form>
         </div>
 
         {/* Right Side - Image */}
-        <div className="hidden md:flex items-center justify-center bg-gradient-to-r from-purple-500 to-indigo-600">
+        <div className="hidden md:flex items-center justify-center bg-gray-700">
           <img src={login_image} alt="Login Illustration" className="w-full h-full object-cover" />
         </div>
       </div>

@@ -47,71 +47,71 @@ const Filter = () => {
   return (
     <div>
       <Dashboard activeMenu="Filters">
-        <div className='my-5 mx-auto'>
+        <div className='my-5 mx-auto text-white'>
           <div className='flex justify-between items-center mb-4'>
-            <h2 className='text-2xl font-semibold'>Filter Transactions</h2>
+            <h2 className='text-2xl font-semibold text-white'>Filter Transactions</h2>
           </div>
-          <div className='card p-4 mb-4 shadow-2xl rounded-md bg-indigo-50'>
+          <div className='card p-4 mb-4 shadow-2xl rounded-md bg-gray-900 text-gray-200 border border-gray-700'>
             <div className='flex justify-between items-center mb-4 '>
-              <h5 className='text-lg font-semibold '>Select the filters</h5>
+              <h5 className='text-lg font-semibold text-white'>Select the filters</h5>
             </div>
             <form className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-4'>
               <div>
-                <label className='block text-sm font-medium mb-1' htmlFor='type'>Type</label>
-                <select value={type} id="type" className='w-full border-2 border-indigo-500 px-3 py-2 rounded' onChange={(e) => setType(e.target.value)}>
+                <label className='block text-sm font-medium text-white mb-1' htmlFor='type'>Type</label>
+                <select value={type} id="type" className='w-full bg-gray-700 text-white border border-gray-600 px-3 py-2 rounded' onChange={(e) => setType(e.target.value)}>
                   <option value="income">Income</option>
                   <option value="expense">Expense</option>
                 </select>
               </div>
               <div>
-                <label htmlFor="startdate" className='block text-sm font-medium mb-1'>Start Date</label>
-                <input value={startDate} type="date" id='startdate' className='w-full border-2 border-indigo-500 rounded px-3 py-1.5' onChange={(e) => setStartDate(e.target.value)}/>
+                <label htmlFor="startdate" className='block text-sm font-medium text-white mb-1'>Start Date</label>
+                <input value={startDate} type="date" id='startdate' className='w-full bg-gray-700 text-white border border-gray-600 rounded px-3 py-1.5' onChange={(e) => setStartDate(e.target.value)}/>
               </div>
               <div>
-                <label htmlFor="enddate" className='block text-sm font-medium mb-1'>End Date</label>
-                <input value={endDate} type="date" id='enddate' className='w-full border-2 border-indigo-500 rounded px-3 py-1.5' onChange={(e) => setEndDate(e.target.value)}/>
+                <label htmlFor="enddate" className='block text-sm font-medium text-white mb-1'>End Date</label>
+                <input value={endDate} type="date" id='enddate' className='w-full bg-gray-700 text-white border border-gray-600 rounded px-3 py-1.5' onChange={(e) => setEndDate(e.target.value)}/>
               </div>
               <div>
-                <label htmlFor="sortfield" className='block text-sm font-medium mb-1'>Sort By</label>
-                <select value={sortField} id="sortfield" className='w-full border-2 border-indigo-500 rounded px-3 py-2' onChange={(e) => setSortField(e.target.value)}>
+                <label htmlFor="sortfield" className='block text-sm font-medium text-white mb-1'>Sort By</label>
+                <select value={sortField} id="sortfield" className='w-full bg-gray-700 text-white border border-gray-600 rounded px-3 py-2' onChange={(e) => setSortField(e.target.value)}>
                   <option value="date">Date</option>
                   <option value="amount">Amount</option>
                   <option value="category">Category</option>
                 </select>
               </div>
               <div>
-                <label htmlFor="sortorder" className='block text-sm font-medium mb-1'>Sort Order</label>
-                <select value={sortOrder} id="sortorder" className='w-full border-2 border-indigo-500 rounded px-3 py-2' onChange={(e) => setSortOrder(e.target.value)}>
+                <label htmlFor="sortorder" className='block text-sm font-medium text-white mb-1'>Sort Order</label>
+                <select value={sortOrder} id="sortorder" className='w-full bg-gray-700 text-white border border-gray-600 rounded px-3 py-2' onChange={(e) => setSortOrder(e.target.value)}>
                   <option value="asc">Ascending</option>
                   <option value="desc">Descending</option>
                 </select>
               </div>
               <div className='sm:col-span-1 md:col-span-1 flex items-end'>
                 <div className='w-full'>
-                  <label htmlFor="keyword" className='block text-sm font-medium mb-1'>Search</label>
-                  <input value={keyword} type="text" placeholder='search...' id="keyword" className='w-full rounded border-2 border-indigo-500 px-3 py-1.5' onChange={(e) => setKeyword(e.target.value)}/>
+                  <label htmlFor="keyword" className='block text-sm font-medium text-white mb-1'>Search</label>
+                  <input value={keyword} type="text" placeholder='search...' id="keyword" className='w-full rounded bg-gray-700 text-white placeholder-gray-400 border border-gray-600 px-3 py-1.5' onChange={(e) => setKeyword(e.target.value)}/>
                 </div>
               </div>
               
               <div className="col-span-1 sm:col-span-2 md:col-span-3 flex justify-center">
                 <button 
                   onClick={handleSearch} 
-                  className='w-1/4 p-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:scale-110 text-white rounded-lg flex items-center justify-center cursor-pointer'
+                  className='w-1/4 p-3 bg-gray-500 hover:bg-emerald-600 text-white rounded-lg flex items-center justify-center cursor-pointer'
                 >Apply
                 </button>
               </div>
             </form>
           </div>
 
-          <div className='card p-4 shadow-2xl bg-indigo-50'>
+          <div className='card p-4 shadow-2xl bg-gray-900 text-gray-200 border border-gray-700'>
             <div className='flex justify-between items-center mb-4 '>
-              <h5 className='text-lg font-semibold '>Transactions</h5>
+              <h5 className='text-lg font-semibold text-white'>Transactions</h5>
             </div>
             {transactions.length === 0 && !loading ? (
-              <p className='text-gray-600'>Select the filters and click apply to filter the transactions</p>
+              <p className='text-gray-300'>Select the filters and click apply to filter the transactions</p>
             ): ""}
             {loading ? (
-              <p className='text-gray-600'>Loading transactions</p>
+              <p className='text-gray-300'>Loading transactions</p>
             ) : ("")}
 
             {transactions.map((transactions) => (
