@@ -5,7 +5,6 @@ if (!BASE_URL) {
     console.error('VITE_API_URL is not defined in environment variables');
 }
 
-console.log('API Base URL loaded successfully.');
 
 const CLOUDINARY_CLOUD_NAME = "dv7tllezh";
 
